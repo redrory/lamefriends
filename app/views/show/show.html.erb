@@ -1,2 +1,10 @@
-Rory's details = <%= @rory %>
 
+
+<% if current_user %>
+	Welcome Mr. <%= current_user.last_name %> | <%= current_user.location %> | <%= current_user.gender %>
+	<%= link_to "Sign out", signout_path %>
+
+<% else %>
+	<%= link_to "Sign in with Facebook", "/auth/facebook" %>
+
+<% end %>
