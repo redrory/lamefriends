@@ -1,17 +1,38 @@
 
 
 <% if current_user %>
-	Welcome Mr. <%= current_user.last_name %> | <%= current_user.location %> | <%= current_user.gender %> <br>
-	My token <%= current_user.token %> || Passing token |_ <%= @rush_me_friends %>_|
+	<div id = "welcome">
+		Welcome <%= current_user.first_name %>
+		<%= image_tag(@my_pic) %>
+		<%= link_to "Sign out", signout_path %>
+	</div>
+
+	<div id = "sneaky">
+	    <%@rush_me_friends.each do |f| %>
+
+	    	<%= image_tag(@graph.get_picture(f["id"])) %>
+	    <% end %>
+	</div>
+
+	<% @rush_me_friends.each do |gen| %>
+		<% @mutual = @graph.get_object(gen["id"])%>
+
+		<% if @mutual["gender"] == "male" %>
+			<% @males = @mutual["id"] %>
+		<% end %>
+
+		<% @mf = @mutual["gender"] %>
+		<% @mmf= @mf["male"] %>
+		<% @fmf= @mf["female"] %>
+		<% @mutual %>
+		
+		<% @males %>		
+		NEW = <%= image_tag(@graph.get_picture(@males)) %>	
+	<% end %>
+
+	
 
 
-	<%= image_tag(@my_pic) %>
-	<%= link_to "Sign out", signout_path %>
-
-    <%@rush_me_friends.each do |f| %>
-
-    	<%= image_tag(@graph.get_picture(f["id"])) %>
-    <% end %>
 
 <% else %>
 	<%= link_to "Sign in with Facebook", "/auth/facebook" %>

@@ -1,0 +1,12 @@
+Welcome to LameFriends
+
+
+<% if current_user %>
+	Logged in
+	Not you? <%= link_to "Sign out", signout_path %>
+
+<% else %>
+	Get started
+	<%= link_to image_tag('connect_with_facebook.png'), href = "/auth/facebook/"%>
+
+<% end %>
