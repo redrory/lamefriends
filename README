@@ -1,2 +1,11 @@
+Author: Rory Walker
+Email: redrory@gmail.com
+Date: Jan 7th 2012
+
 LameFriends
 
+Find out which of your friends are "sneaky"
+
+
+Gems - omniauth-facebook, koala
+Rails : 3.1.3
