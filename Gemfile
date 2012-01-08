@@ -10,6 +10,7 @@ gem 'mongoid'
 gem 'bson_ext'
 gem 'koala'
 gem 'omniauth-facebook'
+gem 'koala'
 
 
 # Gems used only for assets and not required
