@@ -18,16 +18,19 @@
 		<% @mutual = @graph.get_object(gen["id"])%>
 
 		<% if @mutual["gender"] == "male" %>
-			<% @males = @mutual["id"] %>
+			<% @malesID = @mutual["id"] %>
+				<%#=@malesName = @mutual["name"] %>
+			M<%= image_tag(@graph.get_picture(@malesID)) %> 
 		<% end %>
+
+
+		
 
 		<% @mf = @mutual["gender"] %>
 		<% @mmf= @mf["male"] %>
 		<% @fmf= @mf["female"] %>
-		<% @mutual %>
-		
-		<% @males %>		
-		NEW = <%= image_tag(@graph.get_picture(@males)) %>	
+
+	
 	<% end %>
 
 	
