@@ -1,4 +1,5 @@
 class ShowController < ApplicationController
+layout :resolve_layout
 
 	def show
  	if current_user 
@@ -14,5 +15,20 @@ class ShowController < ApplicationController
 	 	redirect_to :root
 	end
 		
+	end
+
+	def login
+
+	end
+
+	private
+
+	def resolve_layout
+		case action_name
+		when "login"
+			"landing"			
+		else
+			"application"
+		end
 	end
 end
