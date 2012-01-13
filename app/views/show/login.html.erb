@@ -1,4 +1,4 @@
-Welcome to LameFriends
+
 
 
 <% if current_user %>
@@ -7,6 +7,6 @@ Welcome to LameFriends
 
 <% else %>
 	Get started
-	<%= link_to image_tag('connect_with_facebook.png'), href = "/auth/facebook/"%>
+	<p><%= link_to image_tag('connect_with_facebook.png'), href = "/auth/facebook/"%> </p>
 
 <% end %>
