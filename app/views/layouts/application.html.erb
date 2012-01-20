@@ -2,9 +2,11 @@
 <html>
 <head>
   <title>Lamefriends</title>
-  <%= stylesheet_link_tag    "application" %>
+  <%= stylesheet_link_tag    "application", "container" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+
 </head>
 <body>
 
@@ -12,20 +14,34 @@
 	<div class = "fill">
 		<div class = "container">
 			<a class = "brand" href="#"> LameFriends</a>
-			
+			<ul class = "nav" >
+			<li> <a href="#about">About</a></li>
+
+			</ul>
+
+				<% if current_user %>
+				<button class = "btn" type="submit"> Sign out </button>
+				<% end %>
 		</div>
 	</div>
 </div>
 
 <div class = "container">
+	<div class="content">
+		<div class="page-header">
+			<h1>Mutual Friends <small>none can be trusted</small></h1>
+		</div>
 
-	<div class ="hero-unit">
-		<h1>Hello, world!</h1>
-		<p>Awesome ness</p>
-		<p><a class = "btn primary large">Learn more</a></p>
-	</div>
+		<div class="row"> 
+			<div class="span10">
+				<p><%= yield %></p>
+			</div>
 
-<%= yield %>
+			
+		</div>
+</div>
+
+
 
 
 <footer>

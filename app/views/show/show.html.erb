@@ -1,6 +1,6 @@
 
 
-<% if current_user %>
+
 	<div id = "welcome">
 		Welcome <%= current_user.first_name %>
 		<%= image_tag(@my_pic) %>
@@ -8,10 +8,10 @@
 	</div>
 
 	<div id = "sneaky">
-	    <%@rush_me_friends.each do |f| %>
+	    <%#@rush_me_friends.each do |f| %>
 
-	    	<%= image_tag(@graph.get_picture(f["id"])) %>
-	    <% end %>
+	    	<%#= image_tag(@graph.get_picture(f["id"])) %>
+	    <%# end %>
 	</div>
 
 	<% @rush_me_friends.each do |gen| %>
@@ -19,8 +19,10 @@
 
 		<% if @mutual["gender"] == "male" %>
 			<% @malesID = @mutual["id"] %>
-				<%#=@malesName = @mutual["name"] %>
-			M<%= image_tag(@graph.get_picture(@malesID)) %> 
+			<dl>
+				<dd><%= image_tag(@graph.get_picture(@malesID)) %> </dd>
+				<dd><%=@malesName = @mutual["name"] %></dd>
+			</dl>
 		<% end %>
 
 
@@ -36,8 +38,3 @@
 	
 
 
-
-<% else %>
-	<%= link_to "Sign in with Facebook", "/auth/facebook" %>
-
-<% end %>
